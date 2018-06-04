@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+  Learning module startup.
+  Usage:
+    gmm_bringup.launch gmm_param_path:=<value>
+-->
+<launch>
+  <!-- parameters -->
+  <arg name="gmm_param_path" default="$(find gmm_regression)/config/pose-velctl-gmm_parameters.txt"/>
+
+  <node name="gmr" pkg="gmm_regression" type="gmr_server.py" output="screen">
+    <param name="gmm_param_path" type="str" value="$(arg gmm_param_path)" />
+  </node>
+</launch>
